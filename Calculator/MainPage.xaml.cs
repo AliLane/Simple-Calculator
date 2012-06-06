@@ -4,6 +4,9 @@ using System.Linq;
 using System.Windows.Input;
 using Microsoft.Phone.Controls;
 
+/*
+ * This project has been added to GitHub on 6/6/2012
+ */
 namespace Calculator
 {
     public partial class MainPage : PhoneApplicationPage
