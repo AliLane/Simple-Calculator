@@ -1,0 +1,223 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Calculator.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="480"
+    d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"
+    Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid
+        x:Name="LayoutRoot"
+        Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel
+            x:Name="TitlePanel"
+            Grid.Row="0"
+            Margin="12,17,0,28">
+            <TextBlock
+                x:Name="ApplicationTitle"
+                Text="SIMPLE CALCULATOR"
+                Style="{StaticResource PhoneTextNormalStyle}"
+                TextAlignment="Center"
+                FontSize="32" >
+            	<TextBlock.Foreground>
+            		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            			<GradientStop Color="Black"/>
+            			<GradientStop Color="#FFF0F120" Offset="1"/>
+            			<GradientStop Color="Black"/>
+            			<GradientStop Color="#FFFD391A"/>
+            			<GradientStop Color="#FF42F01F" Offset="1"/>
+            			<GradientStop Color="#FFF6FF51" Offset="0.655"/>
+            			<GradientStop Color="#FF307001" Offset="1"/>
+            			<GradientStop Color="#FF0F5000" Offset="0.991"/>
+            		</LinearGradientBrush>
+            	</TextBlock.Foreground>
+            </TextBlock>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid
+            x:Name="ContentPanel"
+            Grid.Row="1"
+            Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                x:Name="input_textblock"
+                Text=""
+                TextWrapping="Wrap"
+                Grid.ColumnSpan="4"
+                TextAlignment="Right"
+                Style="{StaticResource PhoneTextLargeStyle}" FontFamily="Stencil" FontSize="64" Opacity="0.75" />
+            <Button
+                x:Name="ac_button"
+                Tap="ac_button_Tap"
+                Content="AC"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="1" FontFamily="Stencil" FontSize="61.333" Background="#004E4E4E" />
+            <Button
+                x:Name="plus_button"
+                Tap="plus_button_Tap"
+                Content="+"
+                Grid.Row="3"
+                FontSize="64"
+                Grid.Column="3" FontFamily="Stencil" Background="#004E4E4E" />
+            <Button
+                x:Name="minus_button"
+                Tap="minus_button_Tap"
+                Content="-"
+                d:LayoutOverrides="Width"
+                Grid.Row="4"
+                Grid.Column="3"
+                FontSize="64" FontFamily="Stencil" Background="#004E4E4E" />
+            <Button
+                x:Name="multiply_button"
+                Tap="multiply_button_Tap"
+                Content="*"
+                d:LayoutOverrides="Width"
+                Grid.Row="2"
+                Grid.Column="3"
+                FontSize="64" FontFamily="Stencil" Margin="0" Padding="10,15,10,0" Background="#004E4E4E" />
+            <Button
+                x:Name="division_button"
+                Tap="division_button_Tap"
+                Content="/"
+                d:LayoutOverrides="Width"
+                Grid.Row="1"
+                Grid.Column="3"
+                FontSize="64" FontFamily="Stencil" Background="#004E4E4E" />
+            <Button
+                x:Name="backspace_button"
+                Tap="backspace_button_Tap"
+                Content="&lt;--"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="1"
+                Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="one_button"
+                Tap="one_button_Tap"
+                Content="1"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="4" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="two_button"
+                Tap="two_button_Tap"
+                Content="2"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="4"
+                Grid.Column="1" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="three_button"
+                Tap="three_button_Tap"
+                Content="3"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="4"
+                Grid.Column="2" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="four_button"
+                Tap="four_button_Tap"
+                Content="4"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="3" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="five_button"
+                Tap="five_button_Tap"
+                Content="5"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="3"
+                Grid.Column="1" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="six_button"
+                Tap="six_button_Tap"
+                Content="6"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="3"
+                Grid.Column="2" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="seven_button"
+                Tap="seven_button_Tap"
+                Content="7"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="2" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="eight_button"
+                Tap="eight_button_Tap"
+                Content="8"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="2"
+                Grid.Column="1" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="nine_button"
+                Tap="nine_button_Tap"
+                Content="9"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="2"
+                Grid.Column="2" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="zero_button"
+                Tap="zero_button_Tap"
+                Content="0"
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="5"
+                Grid.Column="1" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="equal_button"
+                Tap="equal_button_Tap"
+                Content="="
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="5"
+                Grid.Column="2" Grid.ColumnSpan="2" FontFamily="Stencil" FontSize="64" Background="#004E4E4E" />
+            <Button
+                x:Name="dot_button"
+                Tap="dot_button_Tap"
+                Content="."
+                d:LayoutOverrides="Width, Height"
+                Grid.Row="5"
+                FontSize="64"
+                FontWeight="Bold" FontFamily="Stencil" Background="#004E4E4E" />
+        </Grid>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>
